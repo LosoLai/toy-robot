@@ -21,7 +21,9 @@ public class Appliaction {
 			//- but implement it later
 			
 			String[] inputs = str.replaceAll("^[,\\s]+", "").split("[,\\s]+");
-			boolean bResult = simulator.excuteCommand(inputs);
+			boolean bResult = simulator.excuteInput(inputs);
+			if(!bResult)
+				bExit = true;
 		}
 	}
 	
