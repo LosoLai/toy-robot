@@ -1,4 +1,5 @@
 import Commands.*;
+import ErrorMessages.*;
 
 /**
  * Responsibilities:
@@ -6,7 +7,6 @@ import Commands.*;
  * The table is 5 X 5 units that no other obstructions on the surface.
  */
 public class Simulator {
-	public final static int UNIT_SIZE = 5;
 	public final static String PLACE  = "PLACE";
 	public final static String MOVE   = "MOVE";
 	public final static String LEFT   = "LEFT";
@@ -14,17 +14,25 @@ public class Simulator {
 	public final static String REPORT = "REPORT";
 	public final static String EXIT   = "EXIT";
 	
-	private TableItem[][] table;
 	private ToyRobot robot;
 	private Command command;
+	//private Simulator simulator;
 	
 	// constructor
 	// initial table and robot instance
 	public Simulator()
 	{
-		table = new TableItem[UNIT_SIZE][UNIT_SIZE];
-		robot = null;
+		setRobot(null);
 		command = null;
+	}
+	
+	//robat getter and setter
+	public ToyRobot getRobot() {
+		return robot;
+	}
+
+	public void setRobot(ToyRobot robot) {
+		this.robot = robot;
 	}
 	
 	public boolean excuteInput(String[] inputs)
@@ -36,19 +44,28 @@ public class Simulator {
 		switch(inputs[0])
 		{
 			case PLACE:
-				command = new PlaceCommand();
+				command = new PlaceCommand(inputs);
 				break;
 			case MOVE:
-				command = new MoveCommand();
-				break;
 			case LEFT:
-				command = new LeftCommand();
-				break;
 			case RIGHT:
-				command = new RightCommand();
-				break;
 			case REPORT:
-				command = new ReportCommand();
+				{
+					if(robot == null)
+					{
+						RobotRelated.displayRobotIsNullMessage();
+						return true;
+					}
+					
+					if(inputs[0] == MOVE)
+						command = new MoveCommand();
+					else if(inputs[0] == LEFT)
+						command = new LeftCommand();
+					else if(inputs[0] == RIGHT)
+						command = new RightCommand();
+					else
+						command = new ReportCommand();
+				}
 				break;
 			case EXIT:
 			default:
@@ -62,11 +79,15 @@ public class Simulator {
 		
 		command.excute();
 		bExcuted = true;
-//		for(int i=0 ; i<inputs.length ; i++)
-//		{
-//			System.out.println(inputs[i]);
-//		}
+
 		return bExcuted;
 	}
 	
+	public void placeToyRobot(int posX, int posY, String facing)
+	{
+		if(robot != null)
+			RobotRelated.displayHasRobotAlready();
+		
+		robot = new ToyRobot(posX, posY, facing);
+	}
 }
