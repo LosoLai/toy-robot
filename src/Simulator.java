@@ -1,5 +1,6 @@
 import Commands.*;
 import ErrorMessages.*;
+import TableTop.ToyRobot;
 
 /**
  * Responsibilities:
@@ -16,23 +17,22 @@ public class Simulator {
 	
 	private ToyRobot robot;
 	private Command command;
-	//private Simulator simulator;
+	private static Simulator instance = null;
+	
+	public static Simulator getInstance()
+	{
+		if(instance == null)
+			instance = new Simulator();
+		
+		return instance;
+	}
 	
 	// constructor
 	// initial table and robot instance
-	public Simulator()
+	private Simulator()
 	{
-		setRobot(null);
+		robot = null;
 		command = null;
-	}
-	
-	//robat getter and setter
-	public ToyRobot getRobot() {
-		return robot;
-	}
-
-	public void setRobot(ToyRobot robot) {
-		this.robot = robot;
 	}
 	
 	public boolean excuteInput(String[] inputs)
@@ -81,13 +81,5 @@ public class Simulator {
 		bExcuted = true;
 
 		return bExcuted;
-	}
-	
-	public void placeToyRobot(int posX, int posY, String facing)
-	{
-		if(robot != null)
-			RobotRelated.displayHasRobotAlready();
-		
-		robot = new ToyRobot(posX, posY, facing);
 	}
 }

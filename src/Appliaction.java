@@ -8,7 +8,7 @@ public class Appliaction {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner reader = new Scanner(System.in);
-		Simulator simulator = new Simulator();
+		Simulator simulator = Simulator.getInstance();
 		
 		//display instructions
 		showInstructions();

@@ -1,4 +1,5 @@
 package Commands;
+import TableTop.ToyRobot;
 /**
  * Command is a Abstract class 
  * provide the constructor for initial variable (type)

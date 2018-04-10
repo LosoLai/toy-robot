@@ -1,3 +1,4 @@
+package TableTop;
 /**
  * TableItem is a Abstract class 
  * provide the constructor for initial variable (type)

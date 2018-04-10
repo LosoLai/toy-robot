@@ -1,4 +1,5 @@
 package Commands;
+import TableTop.ToyRobot;
 
 public class RightCommand extends Command {
 	
