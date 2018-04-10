@@ -26,5 +26,5 @@ public abstract class Command {
 		this.commandType = commandType;
 	}
 	
-	abstract public void excute();
+	abstract public void execute();
 }

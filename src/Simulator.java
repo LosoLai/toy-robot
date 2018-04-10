@@ -77,7 +77,7 @@ public class Simulator {
 		if(command == null)
 			return false;
 		
-		command.excute();
+		command.execute();
 		bExcuted = true;
 
 		return bExcuted;

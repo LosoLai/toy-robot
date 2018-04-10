@@ -9,7 +9,7 @@ public class LeftCommand extends Command {
 	}
 
 	@Override
-	public void excute() {
+	public void execute() {
 		// TODO Auto-generated method stub
 		System.out.println(LEFT);
 	}
