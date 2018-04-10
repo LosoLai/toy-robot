@@ -1,3 +1,4 @@
+package Commands;
 /**
  * Command is a Abstract class 
  * provide the constructor for initial variable (type)
@@ -23,4 +24,6 @@ public abstract class Command {
 	public void setCommandType(int commandType) {
 		this.commandType = commandType;
 	}
+	
+	abstract public void excute();
 }

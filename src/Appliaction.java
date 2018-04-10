@@ -25,6 +25,9 @@ public class Appliaction {
 			if(!bResult)
 				bExit = true;
 		}
+		
+		//exit system
+		showExitMemssage();
 	}
 	
 	public static void showInstructions()
@@ -38,5 +41,9 @@ public class Appliaction {
 		System.out.println("EXIT");
 		System.out.println("Please enter your command : ");
 	}
-
+	
+	public static void showExitMemssage()
+	{
+		System.out.println("========Exit SYSTEM========");
+	}
 }

@@ -1,3 +1,5 @@
+import Commands.*;
+
 /**
  * Responsibilities:
  * Simulator reports toy robot movements on a square table top. 
@@ -14,6 +16,7 @@ public class Simulator {
 	
 	private TableItem[][] table;
 	private ToyRobot robot;
+	private Command command;
 	
 	// constructor
 	// initial table and robot instance
@@ -21,6 +24,7 @@ public class Simulator {
 	{
 		table = new TableItem[UNIT_SIZE][UNIT_SIZE];
 		robot = null;
+		command = null;
 	}
 	
 	public boolean excuteInput(String[] inputs)
@@ -32,25 +36,31 @@ public class Simulator {
 		switch(inputs[0])
 		{
 			case PLACE:
-				System.out.println(PLACE);
+				command = new PlaceCommand();
 				break;
 			case MOVE:
-				System.out.println(MOVE);
+				command = new MoveCommand();
 				break;
 			case LEFT:
-				System.out.println(LEFT);
+				command = new LeftCommand();
 				break;
 			case RIGHT:
-				System.out.println(RIGHT);
+				command = new RightCommand();
 				break;
 			case REPORT:
-				System.out.println(REPORT);
+				command = new ReportCommand();
 				break;
 			case EXIT:
 			default:
 				return false;
 		}
 		
+		//should new expection for it
+		//instead of returning false
+		if(command == null)
+			return false;
+		
+		command.excute();
 		bExcuted = true;
 //		for(int i=0 ; i<inputs.length ; i++)
 //		{
