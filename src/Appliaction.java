@@ -1,4 +1,6 @@
 import java.util.*;
+
+import TableTop.Simulator;
 /**
  * Application create a Simulator object
  * for monitoring toy robot status

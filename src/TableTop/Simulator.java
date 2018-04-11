@@ -1,6 +1,6 @@
+package TableTop;
 import Commands.*;
 import ErrorMessages.*;
-import TableTop.ToyRobot;
 
 /**
  * Responsibilities:
