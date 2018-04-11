@@ -14,6 +14,10 @@ public class ToyRobot extends TableItem {
 	private static ToyRobot instance = null;
 	private int instanceConter;
 	
+	//record next valid movement
+	private int nextPosX;
+	private int nextPosY;
+	
 	public static ToyRobot getInstance()
 	{
 		if(instance == null)
@@ -48,9 +52,9 @@ public class ToyRobot extends TableItem {
 	public static boolean checkFacing(String facing)
 	{
 		String upper = facing.toUpperCase();
-		if(!upper.matches(NORTH) || 
-		   !upper.matches(SOUTH) ||
-		   !upper.matches(EAST) ||
+		if(!upper.matches(NORTH) && 
+		   !upper.matches(SOUTH) &&
+		   !upper.matches(EAST)  &&
 		   !upper.matches(WEST))
 		{
 			LocationBoundaryRelated.displayFacingInvalidMessage();
@@ -58,5 +62,41 @@ public class ToyRobot extends TableItem {
 		}
 		
 		return true;
+	}
+	
+	//robot movement
+	public boolean isAbleToMove()
+	{
+		//check one step from the direction
+		//will be out of the position range
+		int curPosX = this.getPosX();
+		int curPosY = this.getPosY();
+		String curFacing = this.getFacing();
+		
+		if(curFacing.matches(NORTH))
+			curPosY++;
+		if(curFacing.matches(SOUTH))
+			curPosY--;
+		if(curFacing.matches(EAST))
+			curPosX++;
+		if(curFacing.matches(WEST))
+			curPosX--;
+		
+		//check new position
+		if(!TableItem.checkPosX(curPosX))
+			return false;
+		if(!TableItem.checkPosY(curPosY))
+			return false;
+		
+		//validate position
+		nextPosX = curPosX;
+		nextPosY = curPosY;
+		return true;
+	}
+	
+	public void robotMove()
+	{
+		this.setPosX(nextPosX);
+		this.setPosY(nextPosY);
 	}
 }

@@ -41,38 +41,31 @@ public class Simulator {
 		if(inputs.length <= 0)
 			return bExcuted;
 		
-		switch(inputs[0])
+		String upperStr = inputs[0].toUpperCase();
+		if(upperStr.matches(PLACE))
+			command = new PlaceCommand(inputs);
+		else if(upperStr.matches(EXIT))
+			return false;
+		else
 		{
-			case PLACE:
-				command = new PlaceCommand(inputs);
-				break;
-			case MOVE:
-			case LEFT:
-			case RIGHT:
-			case REPORT:
-				{
-					if(robot == null)
-					{
-						RobotRelated.displayRobotIsNullMessage();
-						return true;
-					}
-					
-					if(inputs[0] == MOVE)
-						command = new MoveCommand();
-					else if(inputs[0] == LEFT)
-						command = new LeftCommand();
-					else if(inputs[0] == RIGHT)
-						command = new RightCommand();
-					else
-						command = new ReportCommand();
-				}
-				break;
-			case EXIT:
-			default:
-				return false;
+			robot = ToyRobot.getInstance();
+			if(robot == null)
+			{
+				RobotRelated.displayRobotIsNullMessage();
+				return true;
+			}
+			
+			if(upperStr.matches(MOVE))
+				command = new MoveCommand();
+			else if(upperStr.matches(LEFT))
+				command = new LeftCommand();
+			else if(upperStr.matches(RIGHT))
+				command = new RightCommand();
+			else
+				command = new ReportCommand();
 		}
 		
-		//should new expection for it
+		//should new exception for it
 		//instead of returning false
 		if(command == null)
 			return false;
