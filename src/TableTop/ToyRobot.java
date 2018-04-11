@@ -18,7 +18,7 @@ public class ToyRobot extends TableItem {
 	private String[] directions;
 	
 	private static ToyRobot instance = null;
-	private int instanceConter;
+	private int placeCounter;
 	
 	//record next valid movement
 	private int nextPosX;
@@ -48,12 +48,12 @@ public class ToyRobot extends TableItem {
 		directions[WEST_INX] = WEST;
 	}
 	
-	public int getInstanceConter() {
-		return instanceConter;
+	public int getPlaceCounter() {
+		return placeCounter;
 	}
 
-	public void setInstanceConter() {
-		this.instanceConter++;
+	public void setPlaceCounter() {
+		this.placeCounter++;
 	}
 
 	public String getFacing() {

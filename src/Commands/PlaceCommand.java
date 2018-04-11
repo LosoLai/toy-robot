@@ -11,6 +11,24 @@ public class PlaceCommand extends Command {
 	private int posX;
 	private int posY;
 	private String facing;
+	
+	//add getters for JUnit testing
+	public int getPara0_Type()
+	{
+		return getCommandType();
+	}
+	public int getPara1_posX()
+	{
+		return posX;
+	}
+	public int getPara2_posY()
+	{
+		return posY;
+	}
+	public String getPara3_Facing()
+	{
+		return facing;
+	}
 
 	public PlaceCommand(String[] inputs)
 	{
@@ -55,9 +73,9 @@ public class PlaceCommand extends Command {
 		System.out.println(PLACE);		
 		
 		ToyRobot robot = ToyRobot.getInstance();
-		robot.setInstanceConter();
+		robot.setPlaceCounter();
 		
-		if(robot.getInstanceConter() > PLACE_LIMIT)
+		if(robot.getPlaceCounter() > PLACE_LIMIT)
 			RobotRelated.displayHasRobotAlready();
 		else
 		{
