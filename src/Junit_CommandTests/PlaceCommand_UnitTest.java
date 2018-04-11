@@ -1,7 +1,7 @@
 /**
  * 
  */
-package CommandTests;
+package Junit_CommandTests;
 
 import static org.junit.Assert.*;
 
