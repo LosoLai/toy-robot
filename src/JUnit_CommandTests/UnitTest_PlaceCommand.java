@@ -1,7 +1,7 @@
 /**
  * 
  */
-package Junit_CommandTests;
+package JUnit_CommandTests;
 
 import static org.junit.Assert.*;
 
@@ -15,7 +15,7 @@ import TableTop.ToyRobot;
  * @author Loso
  *
  */
-public class PlaceCommand_UnitTest {
+public class UnitTest_PlaceCommand {
 	private final static int PARA_LENGTH = 4;
 	private final static int PARA0 = 0;
 	private final static int PARA1 = 1;
