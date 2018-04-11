@@ -1,6 +1,6 @@
 package Commands;
-import ErrorMessages.RobotRelated;
-import TableTop.ToyRobot;
+import ErrorMessages.*;
+import TableTop.*;
 
 public class PlaceCommand extends Command {
 	public final static int PARA_POSX = 1;
@@ -18,10 +18,22 @@ public class PlaceCommand extends Command {
 		
 		if(inputs.length > 1 && inputs.length <= 4)
 		{
-			//also need to check the string validation here
+			//need to have exception here <cause the parseInt>
 			posX = Integer.parseInt(inputs[PARA_POSX]);
+			//checking position X boundary
+			if(!TableItem.checkPosX(posX))
+				super.setExecutableFlag(false);
+			
+			//need to have exception here <cause the parseInt>
 			posY = Integer.parseInt(inputs[PARA_POSY]);
+			//checking position Y boundary
+			if(!TableItem.checkPosY(posY))
+				super.setExecutableFlag(false);
+			
 			facing = inputs[PARA_FACEING];
+			//checking facing
+			if(!ToyRobot.checkFacing(facing))
+				super.setExecutableFlag(false);
 		}
 		else 
 		{
@@ -33,7 +45,14 @@ public class PlaceCommand extends Command {
 	@Override
 	public void execute() {
 		// TODO Auto-generated method stub
-		System.out.println(PLACE);
+		if(!super.isExecutableFlag())
+		{
+			CommandRelated.diaplayCommandIgnore();
+			return;
+		}
+		
+		//for debug purpose
+		System.out.println(PLACE);		
 		
 		ToyRobot robot = ToyRobot.getInstance();
 		robot.setInstanceConter();

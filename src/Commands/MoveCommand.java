@@ -12,6 +12,8 @@ public class MoveCommand extends Command {
 	public void execute() {
 		// TODO Auto-generated method stub
 		System.out.println(MOVE);
+		
+		
 	}
 
 }

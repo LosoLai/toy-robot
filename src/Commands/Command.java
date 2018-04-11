@@ -12,10 +12,12 @@ public abstract class Command {
 	public final static int REPORT = 5;
 	
 	private int commandType;
+	private boolean executableFlag;
 
 	public Command(int type)
 	{
 		setCommandType(type);
+		setExecutableFlag(true);
 	}
 
 	public int getCommandType() {
@@ -24,6 +26,14 @@ public abstract class Command {
 
 	public void setCommandType(int commandType) {
 		this.commandType = commandType;
+	}
+	
+	public boolean isExecutableFlag() {
+		return executableFlag;
+	}
+
+	public void setExecutableFlag(boolean executableFlag) {
+		this.executableFlag = executableFlag;
 	}
 	
 	abstract public void execute();
