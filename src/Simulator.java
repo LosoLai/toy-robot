@@ -57,14 +57,15 @@ public class Simulator {
 			
 			if(upperStr.matches(MOVE))
 				command = new MoveCommand();
-			else if(upperStr.matches(LEFT))
+			if(upperStr.matches(LEFT))
 				command = new LeftCommand();
-			else if(upperStr.matches(RIGHT))
+			if(upperStr.matches(RIGHT))
 				command = new RightCommand();
-			else
+			if (upperStr.matches(REPORT))
 				command = new ReportCommand();
 		}
 		
+		//which means the command type doesn't match any
 		//should new exception for it
 		//instead of returning false
 		if(command == null)

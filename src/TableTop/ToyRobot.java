@@ -127,6 +127,7 @@ public class ToyRobot extends TableItem {
 		this.setPosY(nextPosY);
 	}
 	
+	//robot direction turning
 	public void robotTurnLeft()
 	{
 		curDirection--;
@@ -145,5 +146,14 @@ public class ToyRobot extends TableItem {
 			curDirection = 0;
 		
 		this.facing = directions[curDirection];
+	}
+	
+	//robot report current status
+	public void robotReport()
+	{
+		System.out.println("Current status: " + 
+						   this.getPosX() + "," +
+						   this.getPosY() + "," +
+						   this.getFacing());
 	}
 }
