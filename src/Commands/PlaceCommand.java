@@ -3,6 +3,7 @@ import ErrorMessages.*;
 import TableTop.*;
 
 public class PlaceCommand extends Command {
+	public final static int PARA_REQUIRED_SIZE = 4;
 	public final static int PARA_POSX = 1;
 	public final static int PARA_POSY = 2;
 	public final static int PARA_FACEING = 3;
@@ -34,40 +35,43 @@ public class PlaceCommand extends Command {
 	{
 		super(PLACE);
 		
-		if(inputs.length > 1 && inputs.length <= 4)
+		//check paras size
+		if(inputs.length != PARA_REQUIRED_SIZE)
 		{
-			try
-			{
-				posX = Integer.parseInt(inputs[PARA_POSX]);
-			}
-			catch(Exception e){
-				CommandRelated.displayInputFormatInvalid(inputs[PARA_POSX]);
-			}
-			
-			//checking position X boundary
-			if(!TableItem.checkPosX(posX))
-				super.setExecutableFlag(false);
-			
-			try
-			{
-				posY = Integer.parseInt(inputs[PARA_POSY]);
-			}
-			catch(Exception e){
-				CommandRelated.displayInputFormatInvalid(inputs[PARA_POSX]);
-			}
-			//checking position Y boundary
-			if(!TableItem.checkPosY(posY))
-				super.setExecutableFlag(false);
-			
-			facing = inputs[PARA_FACEING];
-			//checking facing
-			if(!ToyRobot.checkFacing(facing))
-				super.setExecutableFlag(false);
+			//show error message
+			CommandRelated.displayCommandParaInvilad();
+			this.setExecutableFlag(false);
 		}
-		else 
+		else
 		{
-			//should new expection for it
-			//instead of returning false
+			try{
+				posX = Integer.parseInt(inputs[PARA_POSX]);
+				//checking position X boundary
+				if(!TableItem.checkPosX(posX))
+					super.setExecutableFlag(false);
+			} catch(Exception e){
+				CommandRelated.displayInputFormatInvalid(inputs[PARA_POSX]);
+			}
+			
+			try{
+				posY = Integer.parseInt(inputs[PARA_POSY]);
+				//checking position Y boundary
+				if(!TableItem.checkPosY(posY))
+					super.setExecutableFlag(false);
+			} catch(Exception e){
+				CommandRelated.displayInputFormatInvalid(inputs[PARA_POSX]);
+			}
+			
+			try{
+				facing = inputs[PARA_FACEING];
+				//checking facing
+				if(!ToyRobot.checkFacing(facing))
+					super.setExecutableFlag(false);
+			} catch(ArrayIndexOutOfBoundsException e) {
+				CommandRelated.displayCommandParaInvilad();
+			} catch(NullPointerException e) {
+				CommandRelated.displayCommandParaInvilad();
+			}
 		}
 	}
 	
@@ -84,9 +88,9 @@ public class PlaceCommand extends Command {
 		System.out.println(PLACE);		
 		
 		ToyRobot robot = ToyRobot.getInstance();
-		robot.setPlaceCounter();
+		Simulator.getInstance().setPlaceCounter();
 		
-		if(robot.getPlaceCounter() > PLACE_LIMIT)
+		if(Simulator.getInstance().getPlaceCounter() > PLACE_LIMIT)
 			RobotRelated.displayHasRobotAlready();
 		else
 		{

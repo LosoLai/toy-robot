@@ -1,4 +1,5 @@
 package TableTop;
+import CostomizedExceptions.CommandNotExistException;
 import Commands.*;
 import ErrorMessages.*;
 
@@ -18,6 +19,7 @@ public class Simulator {
 	private ToyRobot robot;
 	private Command command;
 	private static Simulator instance = null;
+	private int placeCounter;
 	
 	public static Simulator getInstance()
 	{
@@ -35,7 +37,15 @@ public class Simulator {
 		command = null;
 	}
 	
-	public boolean excuteInput(String[] inputs)
+	public int getPlaceCounter() {
+		return placeCounter;
+	}
+
+	public void setPlaceCounter() {
+		this.placeCounter++;
+	}
+	
+	public boolean excuteInput(String[] inputs) throws CommandNotExistException
 	{
 		boolean bExcuted = false;
 		if(inputs.length <= 0)
@@ -43,33 +53,35 @@ public class Simulator {
 		
 		String upperStr = inputs[0].toUpperCase();
 		if(upperStr.matches(PLACE))
+		{
 			command = new PlaceCommand(inputs);
+		}
 		else if(upperStr.matches(EXIT))
 			return false;
 		else
 		{
-			robot = ToyRobot.getInstance();
-			if(robot == null)
+			int nPlaceCounter = getPlaceCounter();
+			if(nPlaceCounter < PlaceCommand.PLACE_LIMIT)
 			{
 				RobotRelated.displayRobotIsNullMessage();
 				return true;
 			}
-			
-			if(upperStr.matches(MOVE))
-				command = new MoveCommand();
-			if(upperStr.matches(LEFT))
-				command = new LeftCommand();
-			if(upperStr.matches(RIGHT))
-				command = new RightCommand();
-			if (upperStr.matches(REPORT))
-				command = new ReportCommand();
+			else
+			{
+				if(upperStr.matches(MOVE))
+					command = new MoveCommand();
+				if(upperStr.matches(LEFT))
+					command = new LeftCommand();
+				if(upperStr.matches(RIGHT))
+					command = new RightCommand();
+				if (upperStr.matches(REPORT))
+					command = new ReportCommand();
+			}
 		}
 		
 		//which means the command type doesn't match any
-		//should new exception for it
-		//instead of returning false
 		if(command == null)
-			return false;
+			throw new CommandNotExistException("The command is invalid.");
 		
 		command.execute();
 		bExcuted = true;

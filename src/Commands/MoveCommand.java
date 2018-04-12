@@ -7,7 +7,7 @@ public class MoveCommand extends Command {
 	public MoveCommand()
 	{
 		super(MOVE);
-		
+			
 		if(!robot.isAbleToMove())
 			super.setExecutableFlag(false);
 	}

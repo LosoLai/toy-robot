@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import CostomizedExceptions.CommandNotExistException;
 import TableTop.Simulator;
 import TableTop.ToyRobot;
 
@@ -40,7 +41,13 @@ public class Simulator_SernarioTest_ExampleC {
 			String str = sernario.get(i);
 			inputs = str.replaceAll("^[,\\s]+", "").split("[,\\s]+");
 			
-			boolean bResult = simulator.excuteInput(inputs);
+			boolean bResult = true;
+			try {
+				bResult = simulator.excuteInput(inputs);
+			} catch (CommandNotExistException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			assertTrue(bResult);
 		}
 		

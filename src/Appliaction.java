@@ -1,5 +1,5 @@
 import java.util.*;
-
+import CostomizedExceptions.CommandNotExistException;
 import TableTop.Simulator;
 /**
  * Application create a Simulator object
@@ -16,16 +16,25 @@ public class Appliaction {
 		showInstructions();
 		
 		boolean bExit = false;
-		while(!bExit)
-		{			
-			String str = reader.nextLine();
-			//need to validate the input string first 
-			//- but implement it later
-			
-			String[] inputs = str.replaceAll("^[,\\s]+", "").split("[,\\s]+");
-			boolean bResult = simulator.excuteInput(inputs);
-			if(!bResult)
-				bExit = true;
+		try{
+			while(!bExit)
+			{			
+				String str = reader.nextLine();
+				//need to validate the input string first 
+				//- but implement it later
+				
+				String[] inputs = str.replaceAll("^[,\\s]+", "").split("[,\\s]+");
+				boolean bResult = simulator.excuteInput(inputs);
+				if(!bResult)
+					bExit = true;
+			}
+		} catch(CommandNotExistException e) {
+			//if the command type doen't match
+			//exit system
+			System.err.println(e.getMessage());
+		} catch(Exception e) {
+			System.out.println("Unexpected exception occur.");
+			System.err.println(e.getMessage());
 		}
 		
 		//exit system

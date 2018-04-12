@@ -12,4 +12,9 @@ public class CommandRelated {
 		else
 			System.out.println("Input Invalid, please make sure only enter a number");
 	}
+	public static void displayCommandParaInvilad()
+	{
+		System.out.println("Place command parameters doen't fit.");
+		System.out.println("Please enter 3 parameters (ex. PLACE 0,0,NORTH)");
+	}
 }

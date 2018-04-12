@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import Commands.PlaceCommand;
+import TableTop.Simulator;
 import TableTop.ToyRobot;
 
 /**
@@ -36,9 +37,10 @@ public class UnitTest_PlaceCommand {
 	
 	/**
 	 * Test the double place commands 
+	 * @throws Exception 
 	 */
 	@Test
-	public void test_Double_PlaceCommand()
+	public void test_Double_PlaceCommand() throws Exception
 	{
 		//first place command
 		PlaceCommand command = new PlaceCommand(inputs);
@@ -49,7 +51,7 @@ public class UnitTest_PlaceCommand {
 		//expected value: 1
 		robot = ToyRobot.getInstance();
 		int nExpect = 1;
-		int nActual = robot.getPlaceCounter();
+		int nActual = Simulator.getInstance().getPlaceCounter();
 		assertEquals(nExpect, nActual);
 		
 		//second place command
@@ -62,12 +64,13 @@ public class UnitTest_PlaceCommand {
 		
 		//expected value: 2
 		nExpect = 2;
-		nActual = robot.getPlaceCounter();
+		nActual = Simulator.getInstance().getPlaceCounter();
 		assertEquals(nExpect, nActual);	
 	}
 	
 	/**
 	 * Test the PositionX validation
+	 * @throws CommandParametersNotFit 
 	 */
 	@Test
 	public void test_PARA1_PosX() {
@@ -137,6 +140,7 @@ public class UnitTest_PlaceCommand {
 	
 	/**
 	 * Test the PositionY validation
+	 * @throws CommandParametersNotFit 
 	 */
 	@Test
 	public void test_PARA2_PosY() {
