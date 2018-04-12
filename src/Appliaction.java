@@ -51,6 +51,7 @@ public class Appliaction {
 		System.out.println("REPORT");
 		System.out.println("EXIT");
 		System.out.println("Please enter your command : ");
+		System.out.println("============================");
 	}
 	
 	public static void showExitMemssage()

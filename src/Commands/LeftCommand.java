@@ -16,7 +16,7 @@ public class LeftCommand extends Command {
 		robot.robotTurnLeft();
 		
 		//for debug purpose
-		System.out.println(LEFT);
-		System.out.println("TURNLEFT" + " current facing:" + robot.getFacing());
+		//System.out.println(LEFT);
+		//System.out.println("TURNLEFT" + " current facing:" + robot.getFacing());
 	}
 }

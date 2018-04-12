@@ -15,7 +15,7 @@ public class RightCommand extends Command {
 		robot.robotTurnRight();
 		
 		//for debug purpose
-		System.out.println(RIGHT);
-		System.out.println("TURNRIGHT" + " current facing:" + robot.getFacing());
+		//System.out.println(RIGHT);
+		//System.out.println("TURNRIGHT" + " current facing:" + robot.getFacing());
 	}
 }

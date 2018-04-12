@@ -142,7 +142,7 @@ public class ToyRobot extends TableItem {
 	//robot report current status
 	public void robotReport()
 	{
-		System.out.println("Current status: " + 
+		System.out.println(/*"Current status: " + */
 						   this.getPosX() + "," +
 						   this.getPosY() + "," +
 						   this.getFacing());

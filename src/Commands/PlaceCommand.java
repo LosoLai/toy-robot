@@ -85,7 +85,7 @@ public class PlaceCommand extends Command {
 		}
 		
 		//for debug purpose
-		System.out.println(PLACE);		
+		//System.out.println(PLACE);		
 		
 		ToyRobot robot = ToyRobot.getInstance();
 		Simulator.getInstance().setPlaceCounter();

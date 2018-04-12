@@ -13,7 +13,7 @@ public class ReportCommand extends Command {
 	public void execute() {
 		// TODO Auto-generated method stub
 		// for debug purpose
-		System.out.println(REPORT);
+		//System.out.println(REPORT);
 		
 		robot.robotReport();
 	}

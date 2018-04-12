@@ -19,7 +19,7 @@ public class MoveCommand extends Command {
 		robot.robotMove();
 		
 		//for debug purpose
-		System.out.println(MOVE + " current pos:" + 
-		robot.getPosX() + ", " + robot.getPosY());
+		//System.out.println(MOVE + " current pos:" + 
+		//robot.getPosX() + ", " + robot.getPosY());
 	}
 }
