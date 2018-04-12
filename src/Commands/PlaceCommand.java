@@ -36,14 +36,25 @@ public class PlaceCommand extends Command {
 		
 		if(inputs.length > 1 && inputs.length <= 4)
 		{
-			//need to have exception here <cause the parseInt>
-			posX = Integer.parseInt(inputs[PARA_POSX]);
+			try
+			{
+				posX = Integer.parseInt(inputs[PARA_POSX]);
+			}
+			catch(Exception e){
+				CommandRelated.displayInputFormatInvalid(inputs[PARA_POSX]);
+			}
+			
 			//checking position X boundary
 			if(!TableItem.checkPosX(posX))
 				super.setExecutableFlag(false);
 			
-			//need to have exception here <cause the parseInt>
-			posY = Integer.parseInt(inputs[PARA_POSY]);
+			try
+			{
+				posY = Integer.parseInt(inputs[PARA_POSY]);
+			}
+			catch(Exception e){
+				CommandRelated.displayInputFormatInvalid(inputs[PARA_POSX]);
+			}
 			//checking position Y boundary
 			if(!TableItem.checkPosY(posY))
 				super.setExecutableFlag(false);
