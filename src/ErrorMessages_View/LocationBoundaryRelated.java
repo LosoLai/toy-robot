@@ -1,4 +1,4 @@
-package ErrorMessages;
+package ErrorMessages_View;
 
 public class LocationBoundaryRelated {
 	public final static int UNIT_SIZE = 5;

@@ -1,7 +1,8 @@
-package TableTop;
+package Simulator_Controller;
 import CostomizedExceptions.CommandNotExistException;
+import ErrorMessages_View.*;
+import TableTop_Model.ToyRobot;
 import Commands.*;
-import ErrorMessages.*;
 
 /**
  * Responsibilities:

@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import Commands.*;
-import TableTop.ToyRobot;
+import TableTop_Model.ToyRobot;
 
 public class IntergrationTest_Movement {
 	private final static int PARA_LENGTH = 4;

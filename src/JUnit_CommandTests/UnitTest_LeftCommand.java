@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import Commands.LeftCommand;
 import Commands.PlaceCommand;
-import TableTop.ToyRobot;
+import TableTop_Model.ToyRobot;
 
 public class UnitTest_LeftCommand {
 	private final static int PARA_LENGTH = 4;

@@ -6,8 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import Commands.RightCommand;
+import TableTop_Model.ToyRobot;
 import Commands.PlaceCommand;
-import TableTop.ToyRobot;
 
 public class UnitTest_RightCommand {
 	private final static int PARA_LENGTH = 4;

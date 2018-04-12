@@ -1,5 +1,5 @@
 package Commands;
-import TableTop.ToyRobot;
+import TableTop_Model.ToyRobot;
 
 public class LeftCommand extends Command {
 	ToyRobot robot = ToyRobot.getInstance();

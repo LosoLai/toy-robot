@@ -1,4 +1,4 @@
-package ErrorMessages;
+package ErrorMessages_View;
 
 public class CommandRelated {
 	public static void diaplayCommandIgnore()

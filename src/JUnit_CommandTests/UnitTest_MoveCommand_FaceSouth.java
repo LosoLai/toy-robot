@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import Commands.MoveCommand;
 import Commands.PlaceCommand;
-import TableTop.ToyRobot;
+import TableTop_Model.ToyRobot;
 
 public class UnitTest_MoveCommand_FaceSouth {
 	private final static int PARA_LENGTH = 4;

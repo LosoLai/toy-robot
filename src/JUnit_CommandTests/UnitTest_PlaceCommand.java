@@ -9,8 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import Commands.PlaceCommand;
-import TableTop.Simulator;
-import TableTop.ToyRobot;
+import Simulator_Controller.Simulator;
+import TableTop_Model.ToyRobot;
 
 /**
  * @author Loso

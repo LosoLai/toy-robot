@@ -1,6 +1,7 @@
 package Commands;
-import ErrorMessages.*;
-import TableTop.*;
+import ErrorMessages_View.*;
+import Simulator_Controller.Simulator;
+import TableTop_Model.*;
 
 public class PlaceCommand extends Command {
 	public final static int PARA_REQUIRED_SIZE = 4;

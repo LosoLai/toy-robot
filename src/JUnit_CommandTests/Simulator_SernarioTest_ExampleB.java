@@ -9,8 +9,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import CostomizedExceptions.CommandNotExistException;
-import TableTop.Simulator;
-import TableTop.ToyRobot;
+import Simulator_Controller.Simulator;
+import TableTop_Model.ToyRobot;
 
 public class Simulator_SernarioTest_ExampleB {
 	private static Simulator simulator;

@@ -1,4 +1,4 @@
-package ErrorMessages;
+package ErrorMessages_View;
 
 public class RobotRelated {
 	public static void displayRobotIsNullMessage()

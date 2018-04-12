@@ -1,6 +1,6 @@
-package TableTop;
+package TableTop_Model;
 
-import ErrorMessages.LocationBoundaryRelated;
+import ErrorMessages_View.LocationBoundaryRelated;
 
 /**
  * TableItem is a Abstract class 

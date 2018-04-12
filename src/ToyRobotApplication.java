@@ -1,11 +1,12 @@
+
 import java.util.*;
 import CostomizedExceptions.CommandNotExistException;
-import TableTop.Simulator;
+import Simulator_Controller.Simulator;
 /**
  * Application create a Simulator object
  * for monitoring toy robot status
  */
-public class Appliaction {
+public class ToyRobotApplication {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

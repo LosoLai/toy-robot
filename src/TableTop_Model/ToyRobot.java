@@ -1,5 +1,5 @@
-package TableTop;
-import ErrorMessages.LocationBoundaryRelated;
+package TableTop_Model;
+import ErrorMessages_View.LocationBoundaryRelated;
 
 /**
  * ToyRobot inheritance from TableItem
