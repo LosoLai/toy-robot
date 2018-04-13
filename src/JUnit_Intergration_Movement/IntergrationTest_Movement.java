@@ -1,4 +1,4 @@
-package JUnit_Tests;
+package JUnit_Intergration_Movement;
 
 import static org.junit.Assert.*;
 
