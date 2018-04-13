@@ -17,6 +17,18 @@ public class LocationBoundaryRelated {
 		System.out.println("ERROR: Please remain in the range :" + STARTINX + "-" + ENDINX);
 	}
 	
+	public static void displayPosXOutOfTableRange()
+	{
+		System.out.println("WARRING: Position X is out of table range.");
+		System.out.println("WARRING: Robot remains in the same position.");
+	}
+	
+	public static void displayPosYOutOfTableRange()
+	{
+		System.out.println("WARRING: Position X is out of table range.");
+		System.out.println("WARRING: Robot remains in the same position.");
+	}
+	
 	public static void displayFacingInvalidMessage()
 	{
 		System.out.println("WARRING: Robot face direction is invalid.");

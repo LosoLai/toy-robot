@@ -62,7 +62,7 @@ public abstract class TableItem {
 		if(posX < POSX_MIN || posX > POSX_MAX)
 		{
 			//posX out of range
-			LocationBoundaryRelated.displayPosXOutOfRange();
+			LocationBoundaryRelated.displayPosXOutOfTableRange();
 			return false;
 		}
 		return true;
@@ -73,7 +73,7 @@ public abstract class TableItem {
 		if(posY < POSY_MIN || posY > POSY_MAX)
 		{
 			//posY out of range
-			LocationBoundaryRelated.displayPosYOutOfRange();
+			LocationBoundaryRelated.displayPosYOutOfTableRange();
 			return false;
 		}
 		return true;

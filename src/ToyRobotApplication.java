@@ -19,7 +19,9 @@ public class ToyRobotApplication {
 		boolean bExit = false;
 		try{
 			while(!bExit)
-			{			
+			{
+				//noticing user input commands here
+				System.out.print("$>");
 				String str = reader.nextLine();
 				//need to validate the input string first 
 				//- but implement it later
@@ -52,7 +54,6 @@ public class ToyRobotApplication {
 		System.out.println("REPORT");
 		System.out.println("EXIT");
 		System.out.println("Please enter your command : ");
-		System.out.println("============================");
 	}
 	
 	public static void showExitMemssage()
