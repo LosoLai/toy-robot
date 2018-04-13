@@ -60,16 +60,15 @@ public class Simulator {
 		boolean bExcuted = false;
 		if(inputs.length <= 0)
 			return bExcuted;
-		
+		else
+			forceStringsToUpperCase(inputs);
+			
 		String upperStr = inputs[0].toUpperCase();
 		if(upperStr.matches(EXIT))
 			return false;
-		if(upperStr.matches(PLACE))
+		else if(upperStr.matches(PLACE))
 			command = new PlaceCommand(inputs);
-		if(upperStr.matches(MOVE) ||
-		   upperStr.matches(LEFT) ||
-		   upperStr.matches(RIGHT) ||
-		   upperStr.matches(REPORT))
+		else
 		{
 			int nPlaceCounter = getPlaceCounter();
 			if(nPlaceCounter < PlaceCommand.PLACE_LIMIT)
@@ -78,23 +77,34 @@ public class Simulator {
 				return true;
 			}
 
-			if(upperStr.matches(MOVE))
-				command = new MoveCommand();
-			if(upperStr.matches(LEFT))
-				command = new LeftCommand();
-			if(upperStr.matches(RIGHT))
-				command = new RightCommand();
-			if (upperStr.matches(REPORT))
-				command = new ReportCommand();
+			delegateCommands(upperStr);
 		}
-		
-		//which means the command type doesn't match any
-		if(command == null)
-			throw new CommandNotExistException("The command is invalid.");
 		
 		command.execute();
 		bExcuted = true;
 
 		return bExcuted;
+	}
+	
+	// Keep output format consistency
+	private void forceStringsToUpperCase(String[] inputs)
+	{
+		for(int i=0 ; i<inputs.length ; i++)
+			inputs[i] = inputs[i].toUpperCase();
+	}
+	
+	private void delegateCommands(String upperStr) throws CommandNotExistException
+	{
+		if(upperStr.matches(MOVE))
+			command = new MoveCommand();
+		else if(upperStr.matches(LEFT))
+			command = new LeftCommand();
+		else if(upperStr.matches(RIGHT))
+			command = new RightCommand();
+		else if(upperStr.matches(REPORT))
+			command = new ReportCommand();
+		else
+			//which means the command type doesn't match any
+			throw new CommandNotExistException("The command is invalid.");
 	}
 }

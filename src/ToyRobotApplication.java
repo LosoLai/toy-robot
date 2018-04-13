@@ -58,26 +58,29 @@ public class ToyRobotApplication {
 		showInstructions();
 		
 		boolean bExit = false;
-		try{
-			while(!bExit)
-			{
-				//noticing user input commands here
-				System.out.print("$>");
-				String str = reader.nextLine();
-				
-				//use regex to split parameters
-				String[] inputs = str.replaceAll("^[,\\s]+", "").split("[,\\s]+");
-				boolean bResult = simulator.excuteInput(inputs);
-				if(!bResult)
-					bExit = true;
+		
+		while(!bExit)
+		{
+			//noticing user input commands here
+			System.out.print("->");
+			String str = reader.nextLine();
+			
+			//use regex to split parameters
+			String[] inputs = str.replaceAll("^[,\\s]+", "").split("[,\\s]+");
+			boolean bResult = true;
+			try{
+				bResult = simulator.excuteInput(inputs);
+			} catch(CommandNotExistException e) {
+				//if the command type doen't match
+				//exit system
+				System.out.println(e.getMessage());
+			} catch(Exception e) {
+				System.out.println("Unexpected exception occur.");
+				System.out.println(e.getMessage());
 			}
-		} catch(CommandNotExistException e) {
-			//if the command type doen't match
-			//exit system
-			System.err.println(e.getMessage());
-		} catch(Exception e) {
-			System.out.println("Unexpected exception occur.");
-			System.err.println(e.getMessage());
+			
+			if(!bResult)
+				bExit = true;
 		}
 		
 		//exit system
@@ -108,8 +111,9 @@ public class ToyRobotApplication {
 		boolean bExit = false;
 		
 		// read input parameter file
-		try {
+		try{
 			Scanner scanner = new Scanner(fin);
+			
 			while(scanner.hasNext())
 			{
 				while(!bExit)
@@ -118,7 +122,16 @@ public class ToyRobotApplication {
 					
 					//use regex to split parameters
 					String[] inputs = str.replaceAll("^[,\\s]+", "").split("[,\\s]+");
-					boolean bResult = simulator.excuteInput(inputs);
+					boolean bResult = true;
+					
+					try {
+						bResult = simulator.excuteInput(inputs);
+					} catch(CommandNotExistException e) {
+						//if the command type doen't match
+						//exit system
+						System.out.println(e.getMessage());
+					} 
+					
 					if(!bResult)
 						bExit = true;
 				}
@@ -127,10 +140,6 @@ public class ToyRobotApplication {
 			scanner.close();
 		} catch (FileNotFoundException e) {
 			System.err.println("Input file doesn't exist.");
-		} catch(CommandNotExistException e) {
-			//if the command type doen't match
-			//exit system
-			System.err.println(e.getMessage());
 		} catch(Exception e) {
 			//execute all
 			System.out.println("File is executed.");
