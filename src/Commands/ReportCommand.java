@@ -10,11 +10,7 @@ public class ReportCommand extends Command {
 	}
 
 	@Override
-	public void execute() {
-		// TODO Auto-generated method stub
-		// for debug purpose
-		//System.out.println(REPORT);
-		
+	public void execute() {	
 		robot.robotReport();
 	}
 }

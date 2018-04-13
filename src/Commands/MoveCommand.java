@@ -14,12 +14,6 @@ public class MoveCommand extends Command {
 
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
-			
 		robot.robotMove();
-		
-		//for debug purpose
-		//System.out.println(MOVE + " current pos:" + 
-		//robot.getPosX() + ", " + robot.getPosY());
 	}
 }

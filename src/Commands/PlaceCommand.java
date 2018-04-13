@@ -36,7 +36,7 @@ public class PlaceCommand extends Command {
 	{
 		super(PLACE);
 		
-		//check paras size
+		//check parameters size
 		if(inputs.length != PARA_REQUIRED_SIZE)
 		{
 			//show error message
@@ -78,15 +78,11 @@ public class PlaceCommand extends Command {
 	
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
 		if(!super.isExecutableFlag())
 		{
 			CommandRelated.diaplayCommandIgnore();
 			return;
-		}
-		
-		//for debug purpose
-		//System.out.println(PLACE);		
+		}	
 		
 		ToyRobot robot = ToyRobot.getInstance();
 		Simulator.getInstance().setPlaceCounter();

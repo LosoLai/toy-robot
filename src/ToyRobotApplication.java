@@ -9,7 +9,6 @@ import Simulator_Controller.Simulator;
 public class ToyRobotApplication {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner reader = new Scanner(System.in);
 		Simulator simulator = Simulator.getInstance();
 		
@@ -23,8 +22,6 @@ public class ToyRobotApplication {
 				//noticing user input commands here
 				System.out.print("$>");
 				String str = reader.nextLine();
-				//need to validate the input string first 
-				//- but implement it later
 				
 				String[] inputs = str.replaceAll("^[,\\s]+", "").split("[,\\s]+");
 				boolean bResult = simulator.excuteInput(inputs);

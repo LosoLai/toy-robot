@@ -39,7 +39,7 @@ public class ToyRobot extends TableItem {
 	{
 		super(TableItem.ROBOT);
 		
-		//inital directions
+		//initial directions
 		directions = new String[DIRECTIONS];
 		directions[NORTH_INX] = NORTH;
 		directions[EAST_INX] = EAST;
@@ -142,8 +142,7 @@ public class ToyRobot extends TableItem {
 	//robot report current status
 	public void robotReport()
 	{
-		System.out.println(/*"Current status: " + */
-						   this.getPosX() + "," +
+		System.out.println(this.getPosX() + "," +
 						   this.getPosY() + "," +
 						   this.getFacing());
 	}
