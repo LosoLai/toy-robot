@@ -7,18 +7,18 @@ public class LocationBoundaryRelated {
 	
 	public static void displayPosXOutOfRange()
 	{
-		System.out.println("Position X is out of range.");
-		System.out.println("Please remain in the range :" + STARTINX + "-" + ENDINX);
+		System.out.println("ERROR: Position X is out of range.");
+		System.out.println("ERROR: Please remain in the range :" + STARTINX + "-" + ENDINX);
 	}
 	
 	public static void displayPosYOutOfRange()
 	{
-		System.out.println("Position Y is out of range.");
-		System.out.println("Please remain in the range :" + STARTINX + "-" + ENDINX);
+		System.out.println("ERROR: Position Y is out of range.");
+		System.out.println("ERROR: Please remain in the range :" + STARTINX + "-" + ENDINX);
 	}
 	
 	public static void displayFacingInvalidMessage()
 	{
-		System.out.println("Robot face direction is invalid.");
+		System.out.println("WARRING: Robot face direction is invalid.");
 	}
 }
