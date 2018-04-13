@@ -84,7 +84,7 @@ Note: system will exit if the file has exit commands in; and after the auto-test
 
 ## Authors
 
-* **Loso Lai** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Loso Lai** - *Initial work* - [toy-robot](https://github.com/rmit-s3579161-loso-lai/toy-robot)
 
-See also the list of [commits](https://github.com/your/project/contributors) which is the log of development.
+See also the list of [commits](https://github.com/rmit-s3579161-loso-lai/toy-robot/commits/master) which is the log of development.
 
