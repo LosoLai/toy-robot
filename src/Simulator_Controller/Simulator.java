@@ -9,6 +9,19 @@ import Commands.*;
  * Simulator reports toy robot movements on a square table top. 
  * The table is 5 X 5 units that no other obstructions on the surface.
  */
+
+/**
+ * Simulator class takes a controller role in the system, apply Singlton patten
+ * Responsibilities:
+ * matching certain command type by inputs[0]
+ * create the command then execute
+ * Simulator class has
+ * - a private Command instance
+ * - a private int placeCounter
+ * - public getInstance()
+ * - public getPlaceCounter()
+ *   in order to monitor/limited how many times that the executable Place command is executed
+ */
 public class Simulator {
 	public final static String PLACE  = "PLACE";
 	public final static String MOVE   = "MOVE";
@@ -17,7 +30,6 @@ public class Simulator {
 	public final static String REPORT = "REPORT";
 	public final static String EXIT   = "EXIT";
 	
-	private ToyRobot robot;
 	private Command command;
 	private static Simulator instance = null;
 	private int placeCounter;
@@ -34,7 +46,6 @@ public class Simulator {
 	// initial table and robot instance
 	private Simulator()
 	{
-		robot = null;
 		command = null;
 	}
 	
