@@ -1,4 +1,4 @@
-package JUnit_CommandTests;
+package JUnit_Tests;
 
 import static org.junit.Assert.*;
 
@@ -12,7 +12,7 @@ import CostomizedExceptions.CommandNotExistException;
 import Simulator_Controller.Simulator;
 import TableTop_Model.ToyRobot;
 
-public class Simulator_SernarioTest_ExampleB {
+public class Simulator_SernarioTest_ExampleA {
 	private static Simulator simulator;
 	private static ToyRobot robot;
 	private String[] inputs;
@@ -27,7 +27,7 @@ public class Simulator_SernarioTest_ExampleB {
 	public void setUp() throws Exception {
 		sernario = new ArrayList<String>();
 		sernario.add("PLACE 0,0,NORTH");
-		sernario.add("LEFT");
+		sernario.add("MOVE");
 		sernario.add("REPORT");
 	}
 
@@ -50,10 +50,10 @@ public class Simulator_SernarioTest_ExampleB {
 		
 		robot = ToyRobot.getInstance();
 		//expected:
-		//0,0,WEST
+		//0,1,NORTH
 		assertEquals(0, robot.getPosX());
-		assertEquals(0, robot.getPosY());
-		assertEquals("WEST", robot.getFacing());
+		assertEquals(1, robot.getPosY());
+		assertEquals("NORTH", robot.getFacing());
 	}
 
 }

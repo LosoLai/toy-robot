@@ -1,4 +1,4 @@
-package JUnit_CommandTests;
+package JUnit_Tests;
 
 import static org.junit.Assert.*;
 

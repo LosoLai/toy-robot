@@ -1,15 +1,15 @@
-package JUnit_CommandTests;
+package JUnit_Tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import Commands.LeftCommand;
-import Commands.PlaceCommand;
+import Commands.RightCommand;
 import TableTop_Model.ToyRobot;
+import Commands.PlaceCommand;
 
-public class UnitTest_LeftCommand {
+public class UnitTest_RightCommand {
 	private final static int PARA_LENGTH = 4;
 	private final static int PARA0 = 0;
 	private final static int PARA1 = 1;
@@ -26,7 +26,7 @@ public class UnitTest_LeftCommand {
 		inputs[PARA1] = "2";
 		inputs[PARA2] = "2";
 		inputs[PARA3] = "NORTH";
-						
+		
 		PlaceCommand command = new PlaceCommand(inputs);
 		assertTrue(command.isExecutableFlag());
 		if(command.isExecutableFlag())
@@ -37,35 +37,13 @@ public class UnitTest_LeftCommand {
 
 	/**
 	 * Test the left commands
-	 * Starting point 2,2 facing north
+	 * Starting point 2,2 facing south
 	 */
 	@Test
-	public void test_TurnLeft()
-	{
-		//expected: face west
-		LeftCommand left = new LeftCommand();
-		if(left.isExecutableFlag())
-			left.execute();
-		//position X
-		assertEquals(2, robot.getPosX());
-		//position Y
-		assertEquals(2, robot.getPosY());
-		//facing
-		assertEquals("WEST", robot.getFacing());
-		
-		//expected: face south
-		left = new LeftCommand();
-		if(left.isExecutableFlag())
-			left.execute();
-		//position X
-		assertEquals(2, robot.getPosX());
-		//position Y
-		assertEquals(2, robot.getPosY());
-		//facing
-		assertEquals("SOUTH", robot.getFacing());
-		
+	public void test_TurnRight()
+	{		
 		//expected: face east
-		left = new LeftCommand();
+		RightCommand left = new RightCommand();
 		if(left.isExecutableFlag())
 			left.execute();
 		//position X
@@ -75,8 +53,8 @@ public class UnitTest_LeftCommand {
 		//facing
 		assertEquals("EAST", robot.getFacing());
 		
-		//expected: face notrh
-		left = new LeftCommand();
+		//expected: face south
+		left = new RightCommand();
 		if(left.isExecutableFlag())
 			left.execute();
 		//position X
@@ -84,10 +62,10 @@ public class UnitTest_LeftCommand {
 		//position Y
 		assertEquals(2, robot.getPosY());
 		//facing
-		assertEquals("NORTH", robot.getFacing());
+		assertEquals("SOUTH", robot.getFacing());
 		
 		//expected: face west
-		left = new LeftCommand();
+		left = new RightCommand();
 		if(left.isExecutableFlag())
 			left.execute();
 		//position X
@@ -97,8 +75,30 @@ public class UnitTest_LeftCommand {
 		//facing
 		assertEquals("WEST", robot.getFacing());
 		
+		//expected: face notrh
+		left = new RightCommand();
+		if(left.isExecutableFlag())
+			left.execute();
+		//position X
+		assertEquals(2, robot.getPosX());
+		//position Y
+		assertEquals(2, robot.getPosY());
+		//facing
+		assertEquals("NORTH", robot.getFacing());
+		
+		//expected: face east
+		left = new RightCommand();
+		if(left.isExecutableFlag())
+			left.execute();
+		//position X
+		assertEquals(2, robot.getPosX());
+		//position Y
+		assertEquals(2, robot.getPosY());
+		//facing
+		assertEquals("EAST", robot.getFacing());
+		
 		//expected: face south
-		left = new LeftCommand();
+		left = new RightCommand();
 		if(left.isExecutableFlag())
 			left.execute();
 		//position X

@@ -1,4 +1,4 @@
-package JUnit_CommandTests;
+package JUnit_Tests;
 
 import static org.junit.Assert.*;
 
@@ -9,7 +9,7 @@ import Commands.MoveCommand;
 import Commands.PlaceCommand;
 import TableTop_Model.ToyRobot;
 
-public class UnitTest_MoveCommand_FaceEast {
+public class UnitTest_MoveCommand_FaceWest {
 	private final static int PARA_LENGTH = 4;
 	private final static int PARA0 = 0;
 	private final static int PARA1 = 1;
@@ -23,49 +23,49 @@ public class UnitTest_MoveCommand_FaceEast {
 		//place robot first
 		inputs = new String[PARA_LENGTH];
 		inputs[PARA0] = "PLACE";
-		inputs[PARA1] = "0";
-		inputs[PARA2] = "0";
-		inputs[PARA3] = "EAST";
-				
+		inputs[PARA1] = "4";
+		inputs[PARA2] = "4";
+		inputs[PARA3] = "WEST";
+						
 		PlaceCommand command = new PlaceCommand(inputs);
 		assertTrue(command.isExecutableFlag());
 		if(command.isExecutableFlag())
 			command.execute();
-				
+						
 		robot = ToyRobot.getInstance();
 	}
 
 	/**
 	 * Test the move commands
-	 * Starting point 0,0 facing east
+	 * Starting point 4,4 facing west
 	 */
 	@Test
-	public void test_MoveForward_FacingNorth()
-	{			
-		int nExpected = 0;	
-		//facing east one step forward
+	public void test_MoveForward_FacingSouth()
+	{		
+		int nExpected = 4;	
+		//facing west one step forward
 		MoveCommand move = new MoveCommand();
 		if(move.isExecutableFlag())
 			move.execute();
-		assertEquals(++nExpected, robot.getPosX());
+		assertEquals(--nExpected, robot.getPosX());
 		
-		//facing east one step forward
+		//facing west one step forward
 		move = new MoveCommand();
 		if(move.isExecutableFlag())
 			move.execute();
-		assertEquals(++nExpected, robot.getPosX());
+		assertEquals(--nExpected, robot.getPosX());
 		
-		//facing east one step forward
+		//facing west one step forward
 		move = new MoveCommand();
 		if(move.isExecutableFlag())
 			move.execute();
-		assertEquals(++nExpected, robot.getPosX());
+		assertEquals(--nExpected, robot.getPosX());
 		
-		//facing east one step forward
+		//facing west one step forward
 		move = new MoveCommand();
 		if(move.isExecutableFlag())
 			move.execute();
-		assertEquals(++nExpected, robot.getPosX());
+		assertEquals(--nExpected, robot.getPosX());
 		
 		//out of range
 		move = new MoveCommand();
@@ -74,5 +74,4 @@ public class UnitTest_MoveCommand_FaceEast {
 			move.execute();
 		assertEquals(nExpected, robot.getPosX());
 	}
-
 }

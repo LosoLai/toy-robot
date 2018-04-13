@@ -91,13 +91,13 @@ public class ToyRobot extends TableItem {
 		int curPosY = this.getPosY();
 		String curFacing = this.getFacing();
 		
-		if(curFacing.matches(NORTH))
+		if(curFacing.toUpperCase().matches(NORTH))
 			curPosY++;
-		if(curFacing.matches(SOUTH))
+		if(curFacing.toUpperCase().matches(SOUTH))
 			curPosY--;
-		if(curFacing.matches(EAST))
+		if(curFacing.toUpperCase().matches(EAST))
 			curPosX++;
-		if(curFacing.matches(WEST))
+		if(curFacing.toUpperCase().matches(WEST))
 			curPosX--;
 		
 		//check new position

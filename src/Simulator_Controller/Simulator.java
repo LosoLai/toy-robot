@@ -38,6 +38,10 @@ public class Simulator {
 		command = null;
 	}
 	
+	public Command getCommand() {
+		return command;
+	}
+	
 	public int getPlaceCounter() {
 		return placeCounter;
 	}
@@ -53,13 +57,14 @@ public class Simulator {
 			return bExcuted;
 		
 		String upperStr = inputs[0].toUpperCase();
-		if(upperStr.matches(PLACE))
-		{
-			command = new PlaceCommand(inputs);
-		}
-		else if(upperStr.matches(EXIT))
+		if(upperStr.matches(EXIT))
 			return false;
-		else
+		if(upperStr.matches(PLACE))
+			command = new PlaceCommand(inputs);
+		if(upperStr.matches(MOVE) ||
+		   upperStr.matches(LEFT) ||
+		   upperStr.matches(RIGHT) ||
+		   upperStr.matches(REPORT))
 		{
 			int nPlaceCounter = getPlaceCounter();
 			if(nPlaceCounter < PlaceCommand.PLACE_LIMIT)
@@ -67,17 +72,15 @@ public class Simulator {
 				RobotRelated.displayRobotIsNullMessage();
 				return true;
 			}
-			else
-			{
-				if(upperStr.matches(MOVE))
-					command = new MoveCommand();
-				if(upperStr.matches(LEFT))
-					command = new LeftCommand();
-				if(upperStr.matches(RIGHT))
-					command = new RightCommand();
-				if (upperStr.matches(REPORT))
-					command = new ReportCommand();
-			}
+
+			if(upperStr.matches(MOVE))
+				command = new MoveCommand();
+			if(upperStr.matches(LEFT))
+				command = new LeftCommand();
+			if(upperStr.matches(RIGHT))
+				command = new RightCommand();
+			if (upperStr.matches(REPORT))
+				command = new ReportCommand();
 		}
 		
 		//which means the command type doesn't match any
