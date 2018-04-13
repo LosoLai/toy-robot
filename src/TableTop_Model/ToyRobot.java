@@ -2,7 +2,20 @@ package TableTop_Model;
 import ErrorMessages_View.LocationBoundaryRelated;
 
 /**
- * ToyRobot inheritance from TableItem
+ * ToyRobot class inheritance from TableItem
+ * takes a model role in the system, apply Singleton pattern
+ * Responsibilities:
+ * static array that holding directions
+ * store the positions of next step
+ * current facing
+ * currentDirection stores index that is able to map the directions
+ * 
+ * ToyRobot class has
+ * - isAbleToMove:   call by MoveCommand
+ * - robotMove:      call by MoveCommand
+ * - robotTurnLeft:  call by LeftCommand
+ * - robotTurnRight: call by RightCommand
+ * - robotReport:    call by ReportCommand
  */
 public class ToyRobot extends TableItem {
 	public final static String NORTH = "NORTH";
@@ -82,7 +95,8 @@ public class ToyRobot extends TableItem {
 		return true;
 	}
 	
-	//robot movement
+	//calculate the next position then 
+	//check does is ot of the table range
 	public boolean isAbleToMove()
 	{
 		//check one step from the direction
@@ -112,6 +126,7 @@ public class ToyRobot extends TableItem {
 		return true;
 	}
 	
+	//robot movement
 	public void robotMove()
 	{
 		this.setPosX(nextPosX);
@@ -129,6 +144,7 @@ public class ToyRobot extends TableItem {
 		this.facing = directions[curDirection];
 	}
 	
+	//robot direction turning
 	public void robotTurnRight()
 	{
 		curDirection++;

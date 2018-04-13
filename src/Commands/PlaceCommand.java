@@ -3,6 +3,14 @@ import ErrorMessages_View.*;
 import Simulator_Controller.Simulator;
 import TableTop_Model.*;
 
+/**
+ * PlaceCommand class inheritance from Command
+ * Responsibilities:
+ * checking three parameters when instantiate
+ * - posX
+ * - posY
+ * - facing
+ */
 public class PlaceCommand extends Command {
 	public final static int PARA_REQUIRED_SIZE = 4;
 	public final static int PARA_POSX = 1;
@@ -76,6 +84,16 @@ public class PlaceCommand extends Command {
 		}
 	}
 	
+	/**
+	 * abstract method: execute()
+	 * Function:
+	 * checking isExecutable, if so instantiate ToyRobot instance
+	 * set the counter to record the number of PlaceCommand is executed
+	 * first time execution is setting the parameters into ToyRobot 
+	 * - posX
+	 * - posY
+	 * - facing
+	 */
 	@Override
 	public void execute() {
 		if(!super.isExecutableFlag())

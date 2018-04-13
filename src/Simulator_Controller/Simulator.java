@@ -5,7 +5,7 @@ import TableTop_Model.ToyRobot;
 import Commands.*;
 
 /**
- * Simulator class takes a controller role in the system, apply Singlton patten
+ * Simulator class takes a controller role in the system, apply Singleton pattern
  * Responsibilities:
  * matching certain command type by inputs[0]
  * create the command then execute
