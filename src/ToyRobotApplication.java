@@ -1,4 +1,6 @@
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 import CostomizedExceptions.CommandNotExistException;
 import Simulator_Controller.Simulator;
@@ -32,6 +34,23 @@ import Simulator_Controller.Simulator;
 public class ToyRobotApplication {
 
 	public static void main(String[] args) {
+		// read command line arguments------------------------------
+		// do testing via configuration setting
+		// sample: Sernario_Test1.para 0
+		// para0: file name
+		// para1: allow system keep testing via command line if not exit
+		//        after execute all the commands from the file
+		if (args.length >= 2) {
+			boolean bReturn = autoTesting_ReadFile(args[0], args[1]);
+			if(bReturn)
+			{
+				//exit system
+				showExitMemssage();
+				return;
+			}
+		}
+		//----------------------------------------------------------
+				
 		Scanner reader = new Scanner(System.in);
 		Simulator simulator = Simulator.getInstance();
 		
@@ -80,5 +99,45 @@ public class ToyRobotApplication {
 	public static void showExitMemssage()
 	{
 		System.out.println("========Exit SYSTEM========");
+	}
+	
+	public static boolean autoTesting_ReadFile(String fileName, String exit)
+	{
+		File fin = new File(fileName);
+		Simulator simulator = Simulator.getInstance();
+		boolean bExit = false;
+		
+		// read input parameter file
+		try {
+			Scanner scanner = new Scanner(fin);
+			while(scanner.hasNext())
+			{
+				while(!bExit)
+				{
+					String str = scanner.nextLine();
+					
+					//use regex to split parameters
+					String[] inputs = str.replaceAll("^[,\\s]+", "").split("[,\\s]+");
+					boolean bResult = simulator.excuteInput(inputs);
+					if(!bResult)
+						bExit = true;
+				}
+			}
+
+			scanner.close();
+		} catch (FileNotFoundException e) {
+			System.err.println("Input file doesn't exist.");
+		} catch(CommandNotExistException e) {
+			//if the command type doen't match
+			//exit system
+			System.err.println(e.getMessage());
+		} catch(Exception e) {
+			//execute all
+			System.err.println("NOTICE: " + e.getMessage());
+			if(Integer.parseInt(exit) == 0)
+				return false;
+		}
+		
+		return true;
 	}
 }
