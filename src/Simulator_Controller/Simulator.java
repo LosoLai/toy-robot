@@ -5,12 +5,6 @@ import TableTop_Model.ToyRobot;
 import Commands.*;
 
 /**
- * Responsibilities:
- * Simulator reports toy robot movements on a square table top. 
- * The table is 5 X 5 units that no other obstructions on the surface.
- */
-
-/**
  * Simulator class takes a controller role in the system, apply Singlton patten
  * Responsibilities:
  * matching certain command type by inputs[0]

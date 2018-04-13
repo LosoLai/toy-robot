@@ -1,10 +1,19 @@
 package TableTop_Model;
-
 import ErrorMessages_View.LocationBoundaryRelated;
 
 /**
- * TableItem is a Abstract class 
- * provide the constructor for initial variable (type)
+ * TableItem is an Abstract class that providing the constructor
+ * for initial variable (itemType) 
+ * Responsibilities:
+ * support multiple item types are able to put on table top
+ * TableItem class has
+ * - a private int posX
+ * - a private int posY
+ * provides
+ * - static boolean checkPosX(int posX)
+ * - static boolean checkPosY(int posY)
+ *   that allow other classes to use for checking the next step
+ *   would be out of table range or not
  */
 public abstract class TableItem {
 	public final static int UNIT_SIZE = 5;
