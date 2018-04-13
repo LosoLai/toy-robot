@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import Commands.Command;
+import Commands.*;
 import CostomizedExceptions.CommandNotExistException;
 import Simulator_Controller.Simulator;
 
@@ -43,9 +43,9 @@ public class UnitTest_SimulatorWithPlaceFirst {
 		assertTrue(bResult);
 		
 		//check the command type
-		//expected:Command.MOVE
+		//expected:MoveCommand
 		command = simulator.getCommand();
-		assertEquals(Command.MOVE, command.getCommandType());
+		assertTrue(command instanceof MoveCommand);
 	}
 	
 	/**
@@ -59,9 +59,9 @@ public class UnitTest_SimulatorWithPlaceFirst {
 		assertTrue(bResult);
 		
 		//check the command type
-		//expected:Command.MOVE
+		//expected:LeftCommand
 		command = simulator.getCommand();
-		assertEquals(Command.LEFT, command.getCommandType());
+		assertTrue(command instanceof LeftCommand);
 	}
 	
 	/**
@@ -75,9 +75,9 @@ public class UnitTest_SimulatorWithPlaceFirst {
 		assertTrue(bResult);
 		
 		//check the command type
-		//expected:Command.MOVE
+		//expected:RightCommand
 		command = simulator.getCommand();
-		assertEquals(Command.RIGHT, command.getCommandType());
+		assertTrue(command instanceof RightCommand);
 	}
 	
 	/**
@@ -91,9 +91,9 @@ public class UnitTest_SimulatorWithPlaceFirst {
 		assertTrue(bResult);
 		
 		//check the command type
-		//expected:Command.REPORT
+		//expected:ReportCommand
 		command = simulator.getCommand();
-		assertEquals(Command.REPORT, command.getCommandType());
+		assertTrue(command instanceof ReportCommand);
 	}
 
 }

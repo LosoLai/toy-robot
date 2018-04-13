@@ -7,6 +7,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import Commands.Command;
+import Commands.PlaceCommand;
 import CostomizedExceptions.CommandNotExistException;
 import Simulator_Controller.Simulator;
 
@@ -49,7 +50,7 @@ public class UnitTest_Simulator {
 		//check the command type
 		//expected:Command.PLACE
 		command = simulator.getCommand();
-		assertEquals(Command.PLACE, command.getCommandType());
+		assertTrue(command instanceof PlaceCommand);
 	}
 	
 	/**
