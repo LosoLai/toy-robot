@@ -1,8 +1,10 @@
 package Commands;
-import TableTop_Model.ToyRobot;
+
 /**
- * Command is a Abstract class 
- * provide the constructor for initial variable (type)
+ * Command is an Abstract class that providing the constructor
+ * for initial variable (commandType & executableFlag)
+ * and defined a abstract public void execute() 
+ * that required concrete implementation in sub-classes
  */
 public abstract class Command {
 	public final static int PLACE = 1;
