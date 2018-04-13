@@ -42,30 +42,28 @@ public class UnitTest_PlaceCommand {
 	@Test
 	public void test_Double_PlaceCommand() throws Exception
 	{
-		//first place command
+		//place robot first
+		robot = ToyRobot.getInstance();
+		robot.setPosX(0);
+		robot.setPosY(0);
+		robot.setFacing("NORTH");
+		
+		//second place command
+		inputs[PARA1] = "2";
+		inputs[PARA2] = "2";
+		inputs[PARA3] = "SOUTH";
 		PlaceCommand command = new PlaceCommand(inputs);
 		assertTrue(command.isExecutableFlag());
 		if(command.isExecutableFlag())
 			command.execute();
 		
-		//expected value: 1
-		robot = ToyRobot.getInstance();
-		int nExpect = 1;
-		int nActual = Simulator.getInstance().getPlaceCounter();
-		assertEquals(nExpect, nActual);
-		
-		//second place command
-		inputs[PARA1] = "2";
-		inputs[PARA2] = "2";
-		command = new PlaceCommand(inputs);
-		assertTrue(command.isExecutableFlag());
-		if(command.isExecutableFlag())
-			command.execute();
-		
-		//expected value: 2
-		nExpect = 2;
-		nActual = Simulator.getInstance().getPlaceCounter();
-		assertEquals(nExpect, nActual);	
+		//expected value
+		//posX: 0
+		//posY: 0
+		//facing: NORTH
+		assertEquals(0, robot.getPosX());
+		assertEquals(0, robot.getPosY());	
+		assertEquals("NORTH", robot.getFacing());	
 	}
 	
 	/**

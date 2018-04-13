@@ -10,34 +10,22 @@ import Commands.PlaceCommand;
 import TableTop_Model.ToyRobot;
 
 public class UnitTest_MoveCommand_FaceSouth {
-	private final static int PARA_LENGTH = 4;
-	private final static int PARA0 = 0;
-	private final static int PARA1 = 1;
-	private final static int PARA2 = 2;
-	private final static int PARA3 = 3;
-	private String[] inputs;
 	private ToyRobot robot;
 
 	@Before
+	/**
+	 * Starting point 4,4 facing south
+	 */
 	public void setUp() throws Exception {
 		//place robot first
-		inputs = new String[PARA_LENGTH];
-		inputs[PARA0] = "PLACE";
-		inputs[PARA1] = "4";
-		inputs[PARA2] = "4";
-		inputs[PARA3] = "SOUTH";
-				
-		PlaceCommand command = new PlaceCommand(inputs);
-		assertTrue(command.isExecutableFlag());
-		if(command.isExecutableFlag())
-			command.execute();
-				
 		robot = ToyRobot.getInstance();
+		robot.setPosX(4);
+		robot.setPosY(4);
+		robot.setFacing("SOUTH");
 	}
 
 	/**
 	 * Test the move commands
-	 * Starting point 4,4 facing south
 	 */
 	@Test
 	public void test_MoveForward_FacingSouth()
