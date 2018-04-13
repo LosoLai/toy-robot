@@ -133,7 +133,9 @@ public class ToyRobotApplication {
 			System.err.println(e.getMessage());
 		} catch(Exception e) {
 			//execute all
-			System.err.println("NOTICE: " + e.getMessage());
+			System.out.println("File is executed.");
+			System.out.println("NOTICE: " + e.getMessage() + 
+							   " in the " + fileName);
 			if(Integer.parseInt(exit) == 0)
 				return false;
 		}

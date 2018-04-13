@@ -115,22 +115,28 @@ In terms of the application is command line based program, therefore it required
 
 Step1: 
 Open command prompt, and please make sure the working directory is directed to as same as the file path.
-For example: the Demo.jar placed in desktop, the path should be : C:\Users\<User Name>\Desktop;
-then in the command prompt should use "cd C:\Users\<User Name>\Desktop" to direct to the same directory
+For example: the Demo.jar placed in desktop, the path should be : C:\Users\<User Name>\Desktop\JAR File;
+then in the command prompt should use "cd C:\Users\<User Name>\Desktop\JAR File" to direct to the same directory
 
 Step2:
-Typing "java -jar Demo.jar" to execute the JAR file
+- Typing "java -jar Demo.jar" to execute the JAR file
 
 Then the program will run directly by displaying the instructions to guide you put commands for testing.
-========Instructions========
-PLACE X,Y,F
-MOVE
-LEFT
-RIGHT
-REPORT
-EXIT
-Please enter your command :
-$>
+========Instructions======== <br>
+PLACE X,Y,F <br>
+MOVE <br>
+LEFT <br>
+RIGHT <br>
+REPORT <br>
+EXIT <br>
+Please enter your command : <br>
+$> <br>
+
+- Typing "java -jar Demo_ParaFile.jar Sernario_Test1.para 0", that is able to choose a file doing auto-testing
+Note:
+Para0: file name
+Para1: 0 = not able to continue, 1 = is able to continue
+
 
 
 ## 2. Run the project in Eclipse
