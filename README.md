@@ -52,11 +52,29 @@ There is no need to run any installer. Moreover, you can simply delete the entir
 Simply press the green button to run it as an application, the the instructions will display in the console tab.
 
 ## Development
+Basically, I use Java language for developing because I would like to show how well I understand the object-oriented concept and applied design patterns in order to make the code is more scaled and easy to maintain.
+
 ### System Architecture
+In the ToyRobot\Documentation_ToyRobot Dev\Class Diagram folder, ToyRobot Simulator_Ver01 shows a brief picture that how I structure those classes and decided to have a abstract class TableItem that allows ToyRobot to inheritance. The idea is that once the program required another item is able to place on table top as well; for implementing the extra requirements, only need to create a new class that inheritance from TableItem.
+After that, I made a abstract class Command in order to implement PLACE, MOVE, RIGHT, LEFT by following the same structure that reduced duplicate code.
 
 ### Design Patterns
+In the system, I basically applied Singleton on Simulator and ToyRobot classes and intended following MVC (Model-View-Controller) patterns which named separate packages to distinguish each other.
+- Controller: manipulate model objects
+  Simulator manipulate ToyRobot's attributes via Command objects
+- Model: store data
+  ToyRobot store the positions and facing data in order to report to views.
+- View: display information
+  ErrorMessage_View package 
+  
+The purpose that applied Singleton on ToyRobot is to make sure there is once one instance in the system which required in the problem description. The advantage is that the instance is able to across the whole system and not allowed to modify. Therefore, it can ensure the data is from the same one source.
 
 ### TDD - JUnit
+To be honest, this is my first time trying TDD even though the courses I have done already taught us how to use JUnit for unit testing. But writing unit tests does not mean TDD. I believe what I lock of is more details on system structure and define valid/invalid inputs to start with. Overall, the project workflows are:
+
+Design - loop(Develop - Unit Test - JUnit - Debug) - Documentation
+
+Moreover, I know TDD should write test cases for every single function and included boundary input testing. However, I am under one week time constraint that set by myself that pretend undertaking a real task working in the industry. I suppose it is not only to demonstrate the programming capability but also to show my time management skills that probably get the balance between code quality and functionality. 
 
 ## Authors
 
