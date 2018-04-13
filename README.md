@@ -76,6 +76,12 @@ Design - loop(Develop - Unit Test - JUnit - Debug) - Documentation
 
 Moreover, I know TDD should write test cases for every single function and included boundary input testing. However, I am under one week time constraint that set by myself that pretend undertaking a real task working in the industry. I suppose it is not only to demonstrate the programming capability but also to show my time management skills that probably get the balance between code quality and functionality. 
 
+--add an alternative testing method
+It allows system take two parameters to run configurations; 
+Para0: file name
+Para1: exit system or not (0=not able to continue, 1=is able to continue)
+Note: system will exit if the file has exit commands in; and after the auto-testing, the robot is already placed on table.
+
 ## Authors
 
 * **Loso Lai** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
