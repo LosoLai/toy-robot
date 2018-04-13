@@ -2,6 +2,7 @@ package Commands;
 import TableTop_Model.ToyRobot;
 
 public class LeftCommand extends Command {
+	public final static String LEFT = "LEFT";
 	ToyRobot robot = ToyRobot.getInstance();
 	
 	public LeftCommand()
@@ -10,13 +11,7 @@ public class LeftCommand extends Command {
 	}
 
 	@Override
-	public void execute() {
-		// TODO Auto-generated method stub
-		
+	public void execute() {		
 		robot.robotTurnLeft();
-		
-		//for debug purpose
-		//System.out.println(LEFT);
-		//System.out.println("TURNLEFT" + " current facing:" + robot.getFacing());
 	}
 }

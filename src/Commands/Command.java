@@ -6,27 +6,21 @@ package Commands;
  * and defined a abstract public void execute() 
  * that required concrete implementation in sub-classes
  */
-public abstract class Command {
-	public final static int PLACE = 1;
-	public final static int MOVE = 2;
-	public final static int LEFT = 3;
-	public final static int RIGHT = 4;
-	public final static int REPORT = 5;
-	
-	private int commandType;
+public abstract class Command {	
+	private String commandType;
 	private boolean executableFlag;
 
-	public Command(int type)
+	public Command(String type)
 	{
 		setCommandType(type);
 		setExecutableFlag(true);
 	}
 
-	public int getCommandType() {
+	public String getCommandType() {
 		return commandType;
 	}
 
-	public void setCommandType(int commandType) {
+	public void setCommandType(String commandType) {
 		this.commandType = commandType;
 	}
 	

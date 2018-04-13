@@ -12,6 +12,8 @@ import TableTop_Model.*;
  * - facing
  */
 public class PlaceCommand extends Command {
+	public final static String PLACE = "PLACE";
+	
 	public final static int PARA_REQUIRED_SIZE = 4;
 	public final static int PARA_POSX = 1;
 	public final static int PARA_POSY = 2;
@@ -23,7 +25,7 @@ public class PlaceCommand extends Command {
 	private String facing;
 	
 	//add getters for JUnit testing
-	public int getPara0_Type()
+	public String getPara0_Type()
 	{
 		return getCommandType();
 	}
