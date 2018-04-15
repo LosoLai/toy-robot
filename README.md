@@ -186,6 +186,13 @@ Para0: file name
 Para1: exit system or not (0=not able to continue, 1=is able to continue)
 Note: system will exit if the file has exit commands in; and after the auto-testing, the robot is already placed on table.
 
+## Refactor Plan
+Have a state controller to check the simulator current state in order to ensure the user execute PLACE command first.
+<li> design state diagram
+<li> state controller to define all the state
+<li> simulator inheritance from the state machine
+<li> implement each state methods to ensure it follows the state diagram
+
 ## Authors
 
 * **Loso Lai** - *Initial work* - [toy-robot](https://github.com/rmit-s3579161-loso-lai/toy-robot)
